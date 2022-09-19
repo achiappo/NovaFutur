@@ -1,5 +1,7 @@
 First Step: read in the input information. 
 The standard input function in Python does not enforce a specific formatting of the input or its value.
-Moreover, given the nature of the problem, all input numbers should be integers.
+Additionally, given the nature of the problem, all input numbers should be integers.
 To account for possible mistakes in the input, eg. numbers N or M exceeding 1000, I include clauses and printed instructions to guide the user.
+
 The instructions to read in each pizzeria's coordinates and distance to blocks served should be flexible, as the number of rows following the first depend on the second number entered in the first row.
+Moreover, an instruction should be included to verify that the pizzerias' coordinates are within the grid size, ie. each should be in the range [1, N]]
