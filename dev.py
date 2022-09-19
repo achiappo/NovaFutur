@@ -1,9 +1,25 @@
 
+import argparse
 import numpy as np
 
 from scipy.spatial import distance
 
-verbose = True
+parser = argparse.ArgumentParser(
+	prog='Z-city pizzas selection calculator',
+	description='Calculate greatest pizza selection in city'
+)
+
+
+parser.add_argument(
+	'--verbose',
+	dest='verbose',
+	action='store_true',
+	help='argument to control verbosity of script'
+)
+
+args = parser.parse_args()
+
+verbose = getattr(args, 'verbose')
 
 ## First step: read in the input information ##
 
@@ -26,7 +42,7 @@ while not correct_grid_input:
 			correct_grid_input = True
 
 			if verbose:
-				print(f'you have chosen a grid size of {N} and {M} pizzerias')
+				print(f'\nYou have chosen a grid size of {N} and {M} pizzerias')
 
 	except ValueError:
 		print('input inserted erroneously! correct input example: 100 10')
@@ -34,7 +50,7 @@ while not correct_grid_input:
 
 # below is the code to flexibly read in the coordinates and distance to the blocks served by each pizzeria
 if verbose:
-	print("For each pizzeria, please insert its coordinates X,Y and the number K of blocks it serves")
+	print("\nFor each pizzeria, please insert its coordinates X,Y and the number K of blocks it serves")
 
 pizzerias_data = []
 
@@ -70,6 +86,7 @@ for m in range(M):
 
 
 if verbose:
+	print('\nYou have entered the following coordinates and delivery distance for each pizzeria:')
 	print(f"{'N. pizzeria':<20}{'X coordinate':<20}{'Y coordinate':<20}{'K distance':<20}")
 
 	for p, (x, y, k) in enumerate(pizzerias_data):
@@ -101,12 +118,14 @@ for x, y, k in pizzerias_data:
 	city_blocks[pizzeria_distances<=k] += 1
 
 if verbose:
-	print('city blocks delivery map')
+	print('\nThe city blocks delivery map is')
 	for row in city_blocks[::-1]:
-		print(' '.join(str(r) for r in row))
+		print( ' '.join(str(r) for r in row) )
 
-if verbose:
-	print('greatest pizzas selection:')
+max_selection = city_blocks.max()
 
 # print to output the final answer
-print(city_blocks.max())
+if verbose:
+	print(f'\nThe greatest pizzas selection is: {max_selection}')
+else:
+	print(max_selection)
