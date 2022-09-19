@@ -1,0 +1,4 @@
+First Step: read in the input information. 
+The standard input function in Python does not enforce a specific formatting of the input or its value.
+Moreover, given the nature of the problem, all input numbers should be integers.
+To account for possible mistakes in the input, eg. numbers N or M exceeding 1000, I include clauses and printed instructions to guide the user.
