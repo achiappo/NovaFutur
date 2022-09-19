@@ -1,5 +1,6 @@
 # Nova Futur Data Scientist Technical Test (A) Solution 
-### requirements (script)
+## Script
+### requirements
 The solution is written in Python (3.9).  
 To execute the script, two libraries are necessary:  
 1. NumPy (1.23.2)  
@@ -8,7 +9,7 @@ both of which are contained in the SciPy package.
 
 ### execution
 The script dev.py can be called from command line like this: `$ python dev.py`  
-Without additional arguments, the behaviour of the script is as requested in the assignment definition, ie  
+In this case, the behaviour of the script is as requested in the assignment definition, ie  
 
 ```
 5 2
@@ -17,7 +18,7 @@ Without additional arguments, the behaviour of the script is as requested in the
 2  
 ```
 
-The script can also be called with the command line argument `--verbose`  
+The script can also be called with the (optional) command line argument `--verbose`  
 This option will print instructions to guide the user in correctly inputting the expected information, and visualise the solution.
 
 ```
@@ -44,9 +45,11 @@ The city blocks delivery map is
 
 The greatest pizzas selection is: 2
 ```
-
-### requirements (notebook)
+## Notebook
+### requirements
 The solution script has been developed on a Jupyter notebook, which is included in this repository.  
 To execute this notebook, the following libraries need to be installed in the environment:  
 - jupyterlab (3.4.5)  
-- matplotlib (3.5.3)
+- matplotlib (3.5.3)  
+### execution  
+Start the notebook from command line with the command `$ jupyter-lab deb.ipynb` and execute the cells in sequence.
