@@ -11,3 +11,12 @@ To create a map of which city blocks are served by the different pizzerias, we c
 To calculate the distance between blocks and pizzerias, two substeps are needed:  
 - a grid with the coordinates of every block
 - a proper reshaping of the former to facilitate the usage of Scipy's distance functions
+
+For every pizzeria, we then identify the blocks it serves by calculating the distance to them.
+Given the East/West and North/South contraint on the motion of the delivery, a simple way of identifying the blocks' distance to a certain pizzeria is using Manhattan distance.
+The resulting map of distances can be then used to identify those blocks within a distance K of pizzeria P.
+For each block reached by the pizzeria delivery, we increase the corresponding grid value by 1.
+
+Two things to keep in mind:
+1. grid rows correspond to Y coordinate and columns to X components, respectively.
+2. pizzerias' coordinates should be decreased by 1, to convert them to (Python) indices

@@ -71,9 +71,27 @@ for p, (x, y, k) in enumerate(pizzerias_data):
 # build grid of zeros to count pizzerias serving each city block
 city_blocks = np.zeros( (N, N), dtype=int )
 
-print('city blocks serving map grid size:', city_blocks.shape)
-
 # create grid of 2D indices of blocks coordinates
 city_grid_indices = np.dstack( np.indices( (N, N) ) ).reshape(-1, 2)
 
-print('city blocks grid indices shape: ', city_grid_indices.shape)
+# consider pizzerias in turn
+for x, y, k in pizzerias_data:
+
+	# reduce by one unit to convert coordinates into (Python) array indices
+	x -= 1
+	y -= 1
+
+	# calculate distances of subgrid blocks to pizzeria's location
+	pizzeria_distances = distance.cdist(
+		city_grid_indices, 
+		[[x, y]], 
+		metric='cityblock'
+	).reshape(N, N)
+
+	# increase count to blocks reached by pizzeria's delivery
+	city_blocks[pizzeria_distances<=k] += 1
+
+print('city blocks delivery map')
+for row in city_blocks[::-1]:
+	print(' '.join(str(r) for r in row))
+
