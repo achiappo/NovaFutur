@@ -9,7 +9,6 @@ parser = argparse.ArgumentParser(
 	description='Calculate greatest pizza selection in city'
 )
 
-
 parser.add_argument(
 	'--verbose',
 	dest='verbose',
@@ -76,13 +75,12 @@ for m in range(M):
 				continue
 
 			else:
+				pizzerias_data.append( [X, Y, K] )
 				correct_pizzeria_input = True
 
 		except ValueError:
 			print('input inserted erroneously! correct input example: 24 58 12')
 			continue
-
-		pizzerias_data.append( [X, Y, K] )
 
 
 if verbose:
