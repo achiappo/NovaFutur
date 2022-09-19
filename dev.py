@@ -10,6 +10,7 @@ print('Insert Z-city grid size (N) and number of pizzerias (M)')
 correct_input = False
 
 while not correct_input:
+
 	try:
 		N, M = list( map(int, input().split()) )
 
@@ -23,3 +24,17 @@ while not correct_input:
 	except ValueError:
 		print('input inserted erroneously! correct input example: 100 10')
 		continue
+
+# below is the code to flexibly read in the coordinates and distance to the blocks served by each pizzeria
+print("For each pizzeria, please insert its coordinates X,Y and the number K of blocks it serves")
+
+pizzerias_data = []
+
+for m in range(M):
+	try:
+		X, Y, K = list( map(int, input().split()) )
+	except ValueError:
+		print('input inserted erroneously! correct input example: 24 58 12')
+
+	pizzerias_data.append( [X, Y, K] )
+
