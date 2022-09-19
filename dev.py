@@ -2,7 +2,7 @@ import numpy as np
 
 from scipy.spatial import distance
 
-## First step: read in the input information
+## First step: read in the input information ##
 
 print('Insert Z-city grid size (N) and number of pizzerias (M)')
 
@@ -66,3 +66,14 @@ print(f"{'N. pizzeria':<20}{'X coordinate':<20}{'Y coordinate':<20}{'K distance'
 for p, (x, y, k) in enumerate(pizzerias_data):
 	print(f"{p+1:<20}{x:<20}{y:<20}{k:<20}")
 
+## Second step: creating pizzerias serving map ##
+
+# build grid of zeros to count pizzerias serving each city block
+city_blocks = np.zeros( (N, N), dtype=int )
+
+print('city blocks serving map grid size:', city_blocks.shape)
+
+# create grid of 2D indices of blocks coordinates
+city_grid_indices = np.dstack( np.indices( (N, N) ) ).reshape(-1, 2)
+
+print('city blocks grid indices shape: ', city_grid_indices.shape)

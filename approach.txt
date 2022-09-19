@@ -5,3 +5,9 @@ To account for possible mistakes in the input, eg. numbers N or M exceeding 1000
 
 The instructions to read in each pizzeria's coordinates and distance to blocks served should be flexible, as the number of rows following the first depend on the second number entered in the first row.
 Moreover, an instruction should be included to verify that the pizzerias' coordinates are within the grid size, ie. each should be in the range [1, N]]
+
+Second Step: creating pizzerias serving map
+To create a map of which city blocks are served by the different pizzerias, we can initialise a grid of zeros of size N, each corresponding to a city block.
+To calculate the distance between blocks and pizzerias, two substeps are needed:  
+- a grid with the coordinates of every block
+- a proper reshaping of the former to facilitate the usage of Scipy's distance functions
