@@ -118,7 +118,7 @@ for x, y, k in pizzerias_data:
 if verbose:
 	print('\nThe city blocks delivery map is')
 	for row in city_blocks[::-1]:
-		print( ' '.join(str(r) for r in row) )
+		print(' '.join(str(r) for r in row) )
 
 max_selection = city_blocks.max()
 
