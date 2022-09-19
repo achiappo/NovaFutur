@@ -1,0 +1,24 @@
+COMPLEXITY
+The complexity of the proposed solution is: ~O(M * N^2)  
+This because for every M pizzeria, N * N operations need to be performed when calculating its distance to every city block. 
+Given that M can be of the same order of N, O(1000), the proposed solution can have complexity ~O(N^3). 
+This complexity can be prohibitive for very large N values.
+
+POSSIBLE IMPROVEMENT
+Knowing that deliveries can travel a finite distance, it follows that calculating the distance between every pizzeria and every city block is superfluous 
+(it's pointless to calculate the distance to block 20 away, if the pizzeria delivers only at a distance of 5 blocks!).
+Moreover, the East/West and North/South contraint on the motion suggests that the delivery always forms a "star" patter on the city blocks grid, like this
+
+  X
+ XXX
+XXXXX
+ XXX
+  X
+
+except the "edge cases", where this pattern can be truncated due to the position of the pizzeria being close to or on the edge of the city grid.
+
+This observation implies that, given the coordinates of a pizzeria, we readily know which are the blocks that it reaches, suppressing the need to perform repeated Manhattan distance calculations.
+Moreover, the symmetry of the pattern provides a further simplication: in fact, only one quarter of the indices need to be consider, as the others are reflexions of these along both axes.
+
+A solution like this would have a complexity at most of ~O(M * K), with K the largest reachable distance of all pizzerias.
+

@@ -1,5 +1,5 @@
 # Nova Futur Data Scientist Technical Test (A) Solution 
-## Reposiroty content
+## Repository content
 1. `dev.py`: script with the implementation of the solution  
 2. `dev.ipynb`: script of the Jupyter Notebook written to gradually develop the solution  
 3. `approach.txt`: text file exposing the approach adopted to solve the assignment  
